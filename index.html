@@ -4,77 +4,96 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Heyuan LIU</title>
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             margin: 0;
             padding: 0;
-            background: #f0f0f0;
+            background-color: #f4f4f9;
             color: #333;
         }
         header {
-            background-color: #2b2b2b;
-            color: #fff;
+            background-color: #0066cc;
+            color: white;
             padding: 40px 20px;
             text-align: center;
-            background-image: linear-gradient(120deg, #30cfd0 0%, #330867 100%);
-            clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+            position: relative;
         }
-
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 20px;
+            background-image: url('wave.svg'); /* Wave effect at the bottom of the header */
+        }
         h1, p {
             margin: 0;
-            padding: 0;
-            text-transform: uppercase;
         }
         .container {
-            max-width: 800px;
+            max-width: 960px;
             margin: 50px auto;
             padding: 20px;
-            background: #ffffff;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-            border-radius: 8px;
-        }
-        img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 50%;
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         footer {
             background-color: #333;
-            color: #fff;
+            color: white;
             text-align: center;
-            padding: 20px 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
+            padding: 10px 0;
         }
         a {
-            color: #06c;
+            color: #007bff;
             text-decoration: none;
         }
         a:hover {
             text-decoration: underline;
+        }
+        .highlight {
+            transition: background-color 0.3s;
+        }
+        .highlight:hover {
+            background-color: #ffff99;
         }
     </style>
 </head>
 <body>
 
 <header>
-    <img src="photolife.jpeg" alt="Heyuan LIU" style="width: 150px; height: 150px;">
+    <img src="photolife.jpeg" alt="Heyuan LIU" style="width: 150px; border-radius: 75px;">
     <h1>Heyuan LIU</h1>
     <p>贼能加班，不懂劳动法</p>
 </header>
 
 <div class="container">
-    <section>
+    <section class="highlight">
         <h2>About Me</h2>
         <p>Research Intern in EPFL IPESE LAB<br>
         Exchange Student in EPFL at Master level<br>
         M1 AiViC(Artificial Intelligence and Advanced Visual Computing) student at École Polytechnique<br>
         Chatbot/AI Engineer in Roland Berger (Part-time)</p>
+        <p>Research Interest: <br> Apply AI in energy and industrial process optimization & Reduce the Energy and Resource consumption in AI training Procedure</p>
+        <p>Looking for: PhD positions in 2025</p>
     </section>
-    <section>
+
+    <section class="highlight">
+        <h2>Educations</h2>
+        <p><img src="epfllogo.png" alt="EPFL Logo" style="width: 100px;"><br>EPFL <br>Master Student in IPESE lab</p>
+        <p><img src="IPPlogo.png" alt="Ecole Polytechnique Logo" style="width: 100px;"><br>École Polytechnique <br>Master of Science and Technology in Artificial Intelligence and Advanced Visual Computing</p>
+        <p><img src="mustlogo.png" alt="Macau University of Science and Technology Logo" style="width: 100px;"><br>Macau University of Science and Technology <br>Bachelor of Science (Software Engineering)</p>
+    </section>
+
+    <section class="highlight">
+        <h2>Work Experiences</h2>
+        <p>EPFL IPESE lab<br>Researcher (intern)<br>Mar. 2024 to Sep. 2024 <br>Topic: Identify optimal configuration with a machine learning method in multi-criteria decision analysis</p>
+        <p>Roland Berger <br>Feb. March to Apr. 2024 <br>Chatbot/AI engineer (intern)</p>
+        <p>Volkswagen <br>Jun. 2022 to Aug. 2022<br>Software Quality Engineer (intern)</p>
+    </section>
+
+    <section class="highlight">
         <h2>Contact Me</h2>
         <p>You can reach me at <a href="mailto:heyuan.liu@epfl.ch">heyuan.liu@epfl.ch</a> or <a href="mailto:heyuan.liu@polytechnique.edu">heyuan.liu@polytechnique.edu</a>.</p>
     </section>
