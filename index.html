@@ -4,123 +4,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Heyuan LIU</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
+            background: #f0f0f0;
+            color: #333;
         }
         header {
-            background-color: #333;
+            background-color: #2b2b2b;
             color: #fff;
-            padding: 20px;
+            padding: 40px 20px;
             text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            background-image: linear-gradient(120deg, #30cfd0 0%, #330867 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
         }
 
-        h1 {
+        h1, p {
             margin: 0;
-            font-size: 36px;
-        }
-        p, h1, h2, h3, h4, h5, h6, li, a {
-            font-size: 18px;
-            line-height: 1.6;
-            margin-bottom: 20px;
-            transition: background-color 0.3s; /* 添加渐变效果 */
-        }
-        /* 添加高亮效果 */
-        p:hover, h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, h6:hover, li:hover, a:hover {
-            background-color: #ffff99; /* 高亮颜色 */
+            padding: 0;
+            text-transform: uppercase;
         }
         .container {
             max-width: 800px;
-            margin: 20px auto;
-            padding: 0 20px;
-            overflow: auto;
+            margin: 50px auto;
+            padding: 20px;
+            background: #ffffff;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 50%;
         }
         footer {
             background-color: #333;
             color: #fff;
             text-align: center;
             padding: 20px 0;
+            position: fixed;
+            bottom: 0;
             width: 100%;
         }
-  
-
+        a {
+            color: #06c;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
 
 <header>
-    <div style="display: flex; justify-content: space-between; align-items: center;">
-        <div>
-            <img src="photolife.jpeg" alt="Heyuan LIU" style="width: 50%;">
-            <h1>Heyuan LIU</h1>
-        </div>
-    </div>
+    <img src="photolife.jpeg" alt="Heyuan LIU" style="width: 150px; height: 150px;">
+    <h1>Heyuan LIU</h1>
     <p>贼能加班，不懂劳动法</p>
 </header>
 
-
 <div class="container">
-    <h2>About Me</h2>
-    <p>Research Intern in EPFL IPESE LAB<br>
-Exchange Student in EPFL at Master level<br>
-M1 AiViC(Artificial Intelligence and Advanced Visual Computing) student at École Polytechnique<br>
-Chatbot/AI Engineer in Roland Berger (Part-time)
-    </p>
-    <p>
-Research Interest: <br>
-Apply AI in energy and industrial process Optimization & Reduce the Energy and Resource consumption in AI training Procedure
-    </p>
-    <p>
-Looking for: PhD positions in 2025
-    </p>
-
-    <h2>Educations</h2>
-<p>
-    <img src="epfllogo.png" alt="EPFL Logo" style="width: 100px; height:auto;">
-    <br>
-    EPFL <br>
-    Master Student in IPESE lab
-</p>
-<p>
-    <img src="IPPlogo.png" alt="Ecole Polytechnique Logo" style="width: 100px; height: auto;">
-    <br>
-    École Polytechnique <br>
-    Master of Science and Technology in Artificial Intelligence and Advanced Visual Computing
-</p>
-<p>
-    <img src="mustlogo.png" alt="Macau University of Science and Technology Logo" style="width: 100px; height: auto;">
-    <br>
-    Macau University of Science and Technology <br>
-    Bachelor of Science (Software Engineering)
-</p>
-
-    <h2>Work Experiences</h2>
-<p>
-   
-    EPFL IPESE lab<br>
-    Researcher(intern)<br>
-    Mar. 2024 to Sep. 2024 <br>
-    Topic:Identify optimal configuration with a machine learning method in multi-criteria decision analysis
-</p>
-<p>
-    Roland Berger <br>
-    Feb. March to Apr. 2024 <br>
-    Chatbot/AI engineer(intern) 
-</p>
-<p>
-    Volkswagen <br>
-    Jun. 2022 to Aug. 2022
-    Software Quality Engineer(intern)
-</p>
-
-
-    <h2>Contact Me</h2>
-    <p>You can reach me at <a href="mailto:heyuan.liu@epfl.ch">heyuan.liu@epfl.ch</a> or <a href="mailto:heyuan.liu@polytechnique.edu">heyuan.liu@polytechnique.edu</a>. </p>
+    <section>
+        <h2>About Me</h2>
+        <p>Research Intern in EPFL IPESE LAB<br>
+        Exchange Student in EPFL at Master level<br>
+        M1 AiViC(Artificial Intelligence and Advanced Visual Computing) student at École Polytechnique<br>
+        Chatbot/AI Engineer in Roland Berger (Part-time)</p>
+    </section>
+    <section>
+        <h2>Contact Me</h2>
+        <p>You can reach me at <a href="mailto:heyuan.liu@epfl.ch">heyuan.liu@epfl.ch</a> or <a href="mailto:heyuan.liu@polytechnique.edu">heyuan.liu@polytechnique.edu</a>.</p>
+    </section>
 </div>
 
 <footer>
