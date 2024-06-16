@@ -54,93 +54,108 @@
         }
         .highlight {
             transition: background-color 0.3s;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
         }
         .highlight:hover {
-            background-color: #ffff99;
+            background-color: #e3f2fd;
         }
         .highlight p strong {
-            font-size: 16px; 
-            font-weight: bold; 
+            font-size: 16px;
+            font-weight: bold;
         }
-        
-        
-
-
+        .profile-img {
+            width: 150px;
+            border-radius: 50%;
+            margin: 20px auto;
+        }
+        .section-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #0066cc;
+            display: inline-block;
+        }
+        .section-content {
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
 
 <header>
-    <img src="photolife.jpeg" alt="Heyuan LIU" style="width: 150px; border-radius: 75px;">
+    <img src="photolife.jpeg" alt="Heyuan LIU" class="profile-img">
     <h1>Heyuan LIU</h1>
-    
-    <p>---------------</p>
+    <p>Research Intern | Exchange Student | AI Engineer</p>
 </header>
 
 <div class="container">
     <section class="highlight">
-        <h2><a href="https://MiSFiT5.github.io/HeyuanCV_2024.pdf" download>Download My Resume</a></h2>
-        
+        <h2 class="section-title"><a href="https://MiSFiT5.github.io/HeyuanCV_2024.pdf" download>Download My Resume</a></h2>
     </section>
     <section class="highlight">
-        <h2>About Me</h2>
-        <p>Research Intern in EPFL IPESE LAB<br>
-        Exchange Student in EPFL at Master level<br>
-        M1 AiViC(Artificial Intelligence and Advanced Visual Computing) student at École Polytechnique<br>
-        Chatbot/AI Engineer in Roland Berger (Part-time)</p>
-        
-        <p>Looking for: PhD positions in 2025</p>
-    </section>
-    <script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=t73wKmkQUXju31IHR-XVGwOBzN3qgYf_ehD7GfoBLiA&cl=ffffff&w=a"></script>
-    <section class="highlight">
-        <h2>Research Interest</h2>
-    <p>
-            <br> <strong>Modeling in Energy and Industrial System and Process</strong> 
-            <br> <strong>LLM(Large Language Model) embeded Desicion Making System</strong>
-            <br> <strong>Next generation of Decision-Making System with Data-driven Method in Industrial Process</strong>
-            <br> <strong>Apply AI in energy and industrial process optimization & Reduce the Energy and Resource consumption in AI training Procedure</strong></p>
+        <h2 class="section-title">About Me</h2>
+        <div class="section-content">
+            <p>Research Intern in EPFL IPESE LAB<br>
+            Exchange Student in EPFL at Master level<br>
+            M1 AiViC(Artificial Intelligence and Advanced Visual Computing) student at École Polytechnique<br>
+            Chatbot/AI Engineer in Roland Berger (Part-time)</p>
+            <p>Looking for: PhD positions in 2025</p>
+        </div>
     </section>
     <section class="highlight">
-        <h2>Educations</h2>
-        <p><img src="epfllogo.png" alt="EPFL Logo" style="width: 100px;"><br><strong>EPFL</strong> <br><a href="https://www.epfl.ch/labs/ipese/">Master Student in IPESE lab</a></p>
-        <p><img src="IPPlogo.png" alt="Ecole Polytechnique Logo" style="width: 100px;"><br><strong>École Polytechnique</strong> <br><a href="https://programmes.polytechnique.edu/en/master/all-msct-programs/artificial-intelligence-advanced-visual-computing-master">Master of Science and Technology in Artificial Intelligence and Advanced Visual Computing</a></p>
-        <p><img src="mustlogo.png" alt="Macau University of Science and Technology Logo" style="width: 100px;"><br><strong>Macau University of Science and Technology</strong> <br><a href="https://www.must.edu.mo/en/scse/programme/bachelors-degree-programme/study-plan-2019">Bachelor of Science (Software Engineering)</a></p>
+        <h2 class="section-title">Research Interest</h2>
+        <div class="section-content">
+            <p><strong>Modeling in Energy and Industrial System and Process</strong></p>
+            <p><strong>LLM(Large Language Model) embedded Decision Making System</strong></p>
+            <p><strong>Next generation of Decision-Making System with Data-driven Method in Industrial Process</strong></p>
+            <p><strong>Apply AI in energy and industrial process optimization & Reduce the Energy and Resource consumption in AI training Procedure</strong></p>
+        </div>
     </section>
-
     <section class="highlight">
-    <h2>Work Experiences</h2>
-    <p><strong>EPFL IPESE lab</strong><br>Researcher (intern)<br>Mar. 2024 to Sep. 2024 <br>Topic: Identify optimal configuration with a machine learning method in multi-criteria decision analysis</p>
-    <p><strong>Roland Berger</strong><br>Feb. 2024 to Apr. 2024 <br>Chatbot/AI engineer (intern)</p>
-    <p><strong>Volkswagen</strong><br>Jun. 2022 to Aug. 2022<br>Software Quality Engineer (intern)</p>
-</section>
-
-   
-    
-    <section class="highlight">
-    <h2>Projects</h2>
-    <p><strong>Identify optimal configuration with a machine learning method in multi-criteria decision analysis</strong><br>Researcher (intern) @ EPFL IPESE lab  <br> Mar. 2024 to Sep. 2024 <br></p>
-    <p><strong>Extractive Summarization with Discourse Graphs</strong><br> INF554  <br>Oct. 2023 to Dec. 2023<br>
-    Link for the Code  <a href="https://github.com/MiSFiT5/INF554_Project">GitHub Link</a><br>
-    GCN, GAT, GraphSAGE, LSTM etc.</p>
-    <p><strong>Vtuber-Genshin</strong><br>INF573  <br>Oct. 2023 to Dec. 2023
-    Link for the Code  <a href="https://github.com/172698691/VTuber-Genshin">GitHub Link</a><br>
-    MediaPipe, Unity, Face Pose Estimation, Facial Feature Detection, FAN</p>
-    <p><strong>A Dynamic Detection Approach for Oscillating Loss Problem in DNN based on AUTOTRAINER</strong><br>Final Year Project in MUST <br>Sep. 2022 - May 2023<br> 
-    Link for the Paper <a href="https://github.com/MiSFiT5/Dynamic-AUTOTRAINER ">Final Year Project</a></p>
-</section>
-
-    <section class="highlight">
-    <h2>Award</h2>
-    <p><img src="award.JPG" alt="award" style="width: 300px;"><br>    
-    <p>published by <strong>Ziyu WU<br></strong><a href="mailto:ziyu.wu@polytechnique.edu">ziyu.wu@polytechnique.edu</a></p>
-</section>
-
-    <section class="highlight">
-        <h2>Contact Me</h2>
-        <p>You can find me in <strong>EPFL</strong> at <a href="https://people.epfl.ch/heyuan.liu">https://people.epfl.ch/heyuan.liu</a>
-        <p>You can reach me at <a href="mailto:heyuan.liu@epfl.ch">heyuan.liu@epfl.ch</a> or <a href="mailto:heyuan.liu@polytechnique.edu">heyuan.liu@polytechnique.edu</a>.</p>
+        <h2 class="section-title">Education</h2>
+        <div class="section-content">
+            <p><img src="epfllogo.png" alt="EPFL Logo" style="width: 100px;"><br><strong>EPFL</strong> <br><a href="https://www.epfl.ch/labs/ipese/">Master Student in IPESE lab</a></p>
+            <p><img src="IPPlogo.png" alt="Ecole Polytechnique Logo" style="width: 100px;"><br><strong>École Polytechnique</strong> <br><a href="https://programmes.polytechnique.edu/en/master/all-msct-programs/artificial-intelligence-advanced-visual-computing-master">Master of Science and Technology in Artificial Intelligence and Advanced Visual Computing</a></p>
+            <p><img src="mustlogo.png" alt="Macau University of Science and Technology Logo" style="width: 100px;"><br><strong>Macau University of Science and Technology</strong> <br><a href="https://www.must.edu.mo/en/scse/programme/bachelors-degree-programme/study-plan-2019">Bachelor of Science (Software Engineering)</a></p>
+        </div>
     </section>
-    
+    <section class="highlight">
+        <h2 class="section-title">Work Experiences</h2>
+        <div class="section-content">
+            <p><strong>EPFL IPESE lab</strong><br>Researcher (intern)<br>Mar. 2024 to Sep. 2024 <br>Topic: Identify optimal configuration with a machine learning method in multi-criteria decision analysis</p>
+            <p><strong>Roland Berger</strong><br>Feb. 2024 to Apr. 2024 <br>Chatbot/AI engineer (intern)</p>
+            <p><strong>Volkswagen</strong><br>Jun. 2022 to Aug. 2022<br>Software Quality Engineer (intern)</p>
+        </div>
+    </section>
+    <section class="highlight">
+        <h2 class="section-title">Projects</h2>
+        <div class="section-content">
+            <p><strong>Identify optimal configuration with a machine learning method in multi-criteria decision analysis</strong><br>Researcher (intern) @ EPFL IPESE lab  <br> Mar. 2024 to Sep. 2024 <br></p>
+            <p><strong>Extractive Summarization with Discourse Graphs</strong><br> INF554  <br>Oct. 2023 to Dec. 2023<br>
+            Link for the Code  <a href="https://github.com/MiSFiT5/INF554_Project">GitHub Link</a><br>
+            GCN, GAT, GraphSAGE, LSTM etc.</p>
+            <p><strong>Vtuber-Genshin</strong><br>INF573  <br>Oct. 2023 to Dec. 2023
+            Link for the Code  <a href="https://github.com/172698691/VTuber-Genshin">GitHub Link</a><br>
+            MediaPipe, Unity, Face Pose Estimation, Facial Feature Detection, FAN</p>
+            <p><strong>A Dynamic Detection Approach for Oscillating Loss Problem in DNN based on AUTOTRAINER</strong><br>Final Year Project in MUST <br>Sep. 2022 - May 2023<br> 
+            Link for the Paper <a href="https://github.com/MiSFiT5/Dynamic-AUTOTRAINER ">Final Year Project</a></p>
+        </div>
+    </section>
+    <section class="highlight">
+        <h2 class="section-title">Award</h2>
+        <div class="section-content">
+            <img src="award.JPG" alt="award" style="width: 300px;">
+            <p>published by <strong>Ziyu WU<br></strong><a href="mailto:ziyu.wu@polytechnique.edu">ziyu.wu@polytechnique.edu</a></p>
+        </div>
+    </section>
+    <section class="highlight">
+        <h2 class="section-title">Contact Me</h2>
+        <div class="section-content">
+            <p>You can find me at <strong>EPFL</strong> <a href="https://people.epfl.ch/heyuan.liu">https://people.epfl.ch/heyuan.liu</a></p>
+            <p>You can reach me at <a href="mailto:heyuan.liu@epfl.ch">heyuan.liu@epfl.ch</a> or <a href="mailto:heyuan.liu@polytechnique.edu">heyuan.liu@polytechnique.edu</a>.</p>
+        </div>
+    </section>
 </div>
 
 <footer>
