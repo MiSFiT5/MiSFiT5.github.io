@@ -126,6 +126,19 @@
             color: white;
             border-color: #004080;
         }
+        .project-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        .project-item img {
+            width: 200px;
+            height: auto;
+            margin-right: 20px;
+        }
+        .project-item div {
+            flex: 1;
+        }
     </style>
 </head>
 <body>
@@ -192,18 +205,48 @@
     <section class="highlight">
         <h2 class="section-title">Projects</h2>
         <div class="section-content">
-            <p class="experience-item"><strong>Identify optimal configuration with a machine learning method in multi-criteria decision analysis</strong><br>Research Project @ EPFL IPESE lab <br> Mar. 2024 to Sep. 2024 <br>
-            The work in EPFL IPESE lab focuses on data-driven methods for decision-making in AI applications within Energy Systems and Industrial Processes. This involves techniques like Dimension Reduction, Clustering, Deep Learning, Reinforcement Learning, and the use of LLM Chatbots.</p>
-            <p class="experience-item"><strong>Navi-UAV</strong><br>INF581 Project @ École Polytechnique <br> Jan. 2024 to Mar. 2024 <br>Link: <a href="https://github.com/172698691/INF581-Project">GitHub</a><br>
-            Implemented Reinforcement Learning (DDPG) to enable UAVs to navigate through dynamic and uncertain environments efficiently.</p>
-            <p class="experience-item"><strong>Real-Time AI for StarCraft</strong><br>INF584A @ École Polytechnique <br> Jan. 2024 to Mar. 2024 <br>Link: <a href="https://github.com/MiSFiT5/Real-Time-AI-for-Star-Craft-Based-on-BWAPI">GitHub</a><br>
-            Implemented real-time AI strategies for the game StarCraft based on the BWAPI, Selected Terran and beated 8/9 teams in the course, Ranking 1st in Terran, 2nd overall.</p>
-            <p class="experience-item"><strong>Extractive Summarization with Discourse Graphs</strong><br>INF554 @ École Polytechnique <br> Oct. 2023 to Dec. 2023 <br>Link: <a href="https://github.com/MiSFiT5/INF554_Project">GitHub</a><br>
-            Utilized GraphSAGE, Graph Convolutional Networks (GCN), Graph Attention Networks (GAT), and other graph-based models to enhance text summarization by analyzing conversation structures and important content.</p>
-            <p class="experience-item"><strong>Vtuber-Genshin</strong><br>INF573 @ École Polytechnique <br> Oct. 2022 to Dec. 2023 <br>Link: <a href="https://github.com/172698691/VTuber-Genshin">GitHub</a><br>
-            Developed a real-time virtual character using MediaPipe and Unity, achieving high performance in head pose estimation and face mesh, ensuring stability and real-time capabilities.</p>
-            <p class="experience-item"><strong>A Dynamic Detection Approach for Oscillating Loss Problem in DNN based on AUTOTRAINER</strong><br>Final Year Project @ MUST <br> Sep. 2022 - May 2023 <br>Link: <a href="https://github.com/MiSFiT5/Dynamic-AUTOTRAINER">GitHub</a><br>
-            Developed a dynamic bug detection system to identify and resolve oscillating loss issues in Deep Neural Networks, achieving a 50% reduction in time and computational resources required for bug detection, and received an “A+”.</p>
+            <div class="project-item">
+                <img src="mesh_animation.gif" alt="Project GIF">
+                <div>
+                    <p><strong>Identify optimal configuration with a machine learning method in multi-criteria decision analysis</strong><br>Research Project @ EPFL IPESE lab <br> Mar. 2024 to Sep. 2024 <br>
+                    The work in EPFL IPESE lab focuses on data-driven methods for decision-making in AI applications within Energy Systems and Industrial Processes. This involves techniques like Dimension Reduction, Clustering, Deep Learning, Reinforcement Learning, and the use of LLM Chatbots.</p>
+                </div>
+            </div>
+            <div class="project-item">
+                <img src="DDPG.jpg" alt="Project GIF">
+                <div>
+                    <p><strong>Navi-UAV</strong><br>INF581 Project @ École Polytechnique <br> Jan. 2024 to Mar. 2024 <br>Link: <a href="https://github.com/172698691/INF581-Project">GitHub</a><br>
+                    Implemented Reinforcement Learning (DDPG) to enable UAVs to navigate through dynamic and uncertain environments efficiently.</p>
+                </div>
+            </div>
+            <div class="project-item">
+                <img src="Starcraft.jpeg" alt="Project GIF">
+                <div>
+                    <p><strong>Real-Time AI for StarCraft</strong><br>INF584A @ École Polytechnique <br> Jan. 2024 to Mar. 2024 <br>Link: <a href="https://github.com/MiSFiT5/Real-Time-AI-for-Star-Craft-Based-on-BWAPI">GitHub</a><br>
+                    Implemented real-time AI strategies for the game StarCraft based on the BWAPI, Selected Terran and beated 8/9 teams in the course, Ranking 1st in Terran, 2nd overall.</p>
+                </div>
+            </div>
+            <div class="project-item">
+                <img src="outlineforNLP.png" alt="Project GIF">
+                <div>
+                    <p><strong>Extractive Summarization with Discourse Graphs</strong><br>INF554 @ École Polytechnique <br> Oct. 2023 to Dec. 2023 <br>Link: <a href="https://github.com/MiSFiT5/INF554_Project">GitHub</a><br>
+                    Utilized GraphSAGE, Graph Convolutional Networks (GCN), Graph Attention Networks (GAT), and other graph-based models to enhance text summarization by analyzing conversation structures and important content.</p>
+                </div>
+            </div>
+            <div class="project-item">
+                <img src="results.gif" alt="Project GIF">
+                <div>
+                    <p><strong>Vtuber-Genshin</strong><br>INF573 @ École Polytechnique <br> Oct. 2022 to Dec. 2023 <br>Link: <a href="https://github.com/172698691/VTuber-Genshin">GitHub</a><br>
+                    Developed a real-time virtual character using MediaPipe and Unity, achieving high performance in head pose estimation and face mesh, ensuring stability and real-time capabilities.</p>
+                </div>
+            </div>
+            <div class="project-item">
+                <img src="Autotrainer.png" alt="Project GIF">
+                <div>
+                    <p><strong>A Dynamic Detection Approach for Oscillating Loss Problem in DNN based on AUTOTRAINER</strong><br>Final Year Project @ MUST <br> Sep. 2022 - May 2023 <br>Link: <a href="https://github.com/MiSFiT5/Dynamic-AUTOTRAINER">GitHub</a><br>
+                    Developed a dynamic bug detection system to identify and resolve oscillating loss issues in Deep Neural Networks, achieving a 50% reduction in time and computational resources required for bug detection, and received an “A+”.</p>
+                </div>
+            </div>
         </div>
     </section>
     <section class="highlight">
