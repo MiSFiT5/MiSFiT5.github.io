@@ -346,6 +346,19 @@
             Engaged in practical training and experiments on path planning for driverless cars, along with understanding current driverless technology developments.</p>
         </div>
     </section>
+    <div class="highlight">
+
+    <section class="highlight">
+        <h2 class="section-title">Paper Reading Notes</h2>
+        <div class="section-content">
+             <p class="experience-item"><strong>An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale (ViT Vision Transformer) </strong><br><a href="https://docs.google.com/presentation/d/19KzwqCjNHx84XDxDGhLlB_k3TmXWjvww/edit?usp=sharing&ouid=115232679957511333633&rtpof=true&sd=true">Goole Drive Link</a><br>
+           </p>
+            
+        </div>
+    </section>
+    </div>
+
+    
     <section class="highlight">
         <h2 class="section-title">Languages & Interests</h2>
         <div class="section-content">
@@ -373,111 +386,12 @@
     </section>
 </div>
 
-<div class="container">
-    <!-- 添加的项目甘特图 Section -->
-    <section class="highlight">
-        <h2 class="section-title">Timeline of Projects</h2>
-        <div class="section-content">
-            
-            <canvas id="ganttChart" width="800" height="400"></canvas>
-        </div>
-    </section>
-</div>
 
 <footer>
     <p>&copy; 2024 Heyuan LIU</p>
 </footer>
 
-<!-- 引入Chart.js和甘特插件 -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-gantt"></script>
 
-<script>
-    // 项目数据
-    const projects = [
-        {
-            label: 'Identify optimal configuration with ML method',
-            category: 'research',
-            start: '2024-03',
-            end: '2024-09'
-        },
-        {
-            label: 'Navi-UAV',
-            category: 'coursework',
-            start: '2024-01',
-            end: '2024-03'
-        },
-        {
-            label: 'Precision Collision Dynamics Simulation in Pinball',
-            category: 'coursework',
-            start: '2024-01',
-            end: '2024-03'
-        },
-        {
-            label: 'Real-Time AI for StarCraft',
-            category: 'coursework',
-            start: '2024-01',
-            end: '2024-03'
-        },
-        {
-            label: 'Extractive Summarization with Discourse Graphs',
-            category: 'coursework',
-            start: '2023-10',
-            end: '2023-12'
-        },
-        {
-            label: 'Vtuber-Genshin',
-            category: 'coursework',
-            start: '2022-10',
-            end: '2023-12'
-        },
-        {
-            label: 'Dynamic Detection in DNN based on AUTOTRAINER',
-            category: 'research',
-            start: '2022-09',
-            end: '2023-05'
-        }
-    ];
-
-    // 项目类别颜色定义
-    const categoriesColors = {
-        research: 'rgba(75, 192, 192, 0.7)',  // 淡绿色用于研究项目
-        coursework: 'rgba(255, 159, 64, 0.7)',  // 橙色用于课程项目
-        internship: 'rgba(153, 102, 255, 0.7)'  // 紫色用于实习项目（如果有）
-    };
-
-    // 根据类别为项目分配颜色
-    const projectData = projects.map(project => ({
-        label: project.label,
-        start: project.start,
-        end: project.end,
-        backgroundColor: categoriesColors[project.category],
-        borderColor: categoriesColors[project.category]
-    }));
-
-    // 绘制甘特图
-    const ctx = document.getElementById('ganttChart').getContext('2d');
-    const ganttChart = new Chart(ctx, {
-        type: 'gantt',
-        data: {
-            datasets: [{
-                label: 'Projects',
-                data: projectData
-            }]
-        },
-        options: {
-            scales: {
-                x: {
-                    type: 'time',
-                    time: {
-                        unit: 'month',
-                        tooltipFormat: 'MMM YYYY'
-                    }
-                }
-            }
-        }
-    });
-</script>
 
 </body>
 </html>
