@@ -1,455 +1,517 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-    
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-gantt"></script>
-
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script>
-<script>
-  L2Dwidget.init({
-    "pluginRootPath": "live2dw/",
-    "pluginJsPath": "lib/",
-    "pluginModelPath": "assets/",
-    "tagMode": false,
-    "log": false,
-    "model": {
-      "jsonPath": "/live2dw/assets/haru01.model.json"
-    },
-    "display": {
-      "position": "left",
-      "width": 250,
-      "height": 400
-    },
-    "mobile": {
-      "show": false
-    }
-  });
-</script>
-
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Heyuan LIU</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="/bitbug_favicon.ico" type="image/x-icon">
+    <title>Heyuan LIU | Researcher & AI Engineer</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        primary: '#0f172a', // Slate 900
+                        accent: '#2563eb',  // Royal Blue
+                        light: '#f8fafc',   // Slate 50
+                    }
+                }
+            }
+        }
+    </script>
+    
     <style>
-        body {
-            font-family: 'Montserrat', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f9;
-            color: #333;
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
         }
-        header {
-            background-color: #0066cc;
-            color: white;
-            padding: 40px 20px;
-            text-align: center;
-            position: relative;
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
         }
-        header::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 20px;
-            background-image: url('wave.svg');
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
         }
-        h1, p {
-            margin: 0;
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
         }
-        .container {
-            max-width: 960px;
-            margin: 50px auto;
-            padding: 20px;
-            background: white;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
         }
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-        }
-        a {
-            color: #007bff;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        .highlight {
-            transition: background-color 0.3s;
-            padding: 10px;
-            border-radius: 5px;
-            margin-bottom: 20px;
-        }
-        .highlight:hover {
-            background-color: #e3f2fd;
-        }
-        .highlight p strong {
-            font-size: 16px;
-            font-weight: bold;
-        }
-        .profile-img {
-            width: 200px;
-            border-radius: 50%;
-            margin: 20px auto;
-        }
-        .section-title {
-            font-size: 24px;
-            margin-bottom: 10px;
-            border-bottom: 2px solid #0066cc;
-            display: inline-block;
-        }
-        .section-content {
-            margin-top: 20px;
-        }
-        .experience-item {
-            margin-bottom: 20px;
-        }
-        .resume-download {
-            text-align: center;
-            margin-bottom: 20px;
-            padding: 20px;
-            border: 2px solid #0066cc;
-            border-radius: 10px;
-            background-color: #f4f4f9;
-            transition: background-color 0.3s, border-color 0.3s;
-        }
-        .resume-download:hover {
-            background-color: #e3f2fd;
-            border-color: #004080;
-        }
-        .resume-download a {
-            font-size: 18px;
-            color: #0066cc;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        .resume-download a:hover {
-            color: #004080;
-            text-decoration: underline;
-        }
-        .social-links {
-            margin-top: 20px;
-        }
-        .social-links a {
-            display: inline-block;
-            margin: 0 10px;
-            padding: 10px 20px;
-            background-color: white;
-            color: #333;
-            border: 2px solid white;
-            border-radius: 5px;
-            font-size: 18px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: background-color 0.3s, color 0.3s;
-        }
-        .social-links a:hover {
-            background-color: #004080;
-            color: white;
-            border-color: #004080;
-        }
-        .project-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 20px;
-        }
-        .project-item img {
-            width: 200px;
-            height: auto;
-            margin-right: 20px;
-        }
-        .project-item div {
-            flex: 1;
-        }
-        @media (max-width: 768px) {
-            .project-item {
-                flex-direction: column;
-                align-items: center;
-            }
-            .project-item img {
-                margin-right: 0;
-                margin-bottom: 10px;
-                width: 100%;
-                height: auto;
-            }
-        }
-        @media (max-width: 480px) {
-            header {
-                padding: 20px 10px;
-            }
-            .container {
-                padding: 10px;
-                margin: 20px auto;
-            }
-            .profile-img {
-                width: 150px;
-            }
-            .section-title {
-                font-size: 20px;
-            }
-            .resume-download a {
-                font-size: 16px;
-            }
-            .social-links a {
-                margin: 5px;
-                padding: 8px 15px;
-                font-size: 16px;
-            }
-            .project-item img {
-                width: 100%;
-                height: auto;
-            }
+        @keyframes fadeIn {
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
-<body>
+<body class="bg-white text-slate-700 antialiased font-sans">
 
-<header>
-    <img src="personalPhoto.png" alt="Heyuan LIU" class="profile-img">
-    <h1>Heyuan LIU</h1>
-    <p>| MX23 École Polytechnique (l'X) |<br>| ENS-PSL/INRIA/CNRS |<br>| Researcher |<br>| AI Engineer |</p>
-    <br>
-    <br>
-    <p><strong>Will join ENS-PSL/INRIA/CNRS</strong></p>
-    <br>
-    <br>
-    <p>Theoriotical Machine Learning, Explainable AI(XAI), LLM, Computer Vision,<br>Natural Language Process, Optimization, Machine Learning, Industrial System Modeling</p>
-    <div class="social-links">
-        <a href="https://www.linkedin.com/in/heyuanliupolytechnique05">LinkedIn</a>
-        <a href="https://github.com/MiSFiT5">GitHub</a>
-    </div>
-</header>
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-100">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <a href="#" class="font-serif font-bold text-xl text-primary">H. Liu</a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#about" class="text-sm font-medium hover:text-accent transition">About</a>
+                    <a href="#experience" class="text-sm font-medium hover:text-accent transition">Experience</a>
+                    <a href="#publications" class="text-sm font-medium hover:text-accent transition">Publications</a>
+                    <a href="#projects" class="text-sm font-medium hover:text-accent transition">Projects</a>
+                </div>
+                <div>
+                    <a href="https://MiSFiT5.github.io/HeyuanLiuCV.pdf" target="_blank" class="px-4 py-2 text-sm font-medium text-white bg-primary rounded-full hover:bg-slate-800 transition shadow-lg hover:shadow-xl">
+                        Download CV
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-<div class="container">
-    <section class="highlight resume-download">
-        <h2 class="section-title"><a href="https://MiSFiT5.github.io/HeyuanLiuCV.pdf" download>Download My Resume</a></h2>
-    </section>
-    <section class="highlight">
-        <h2 class="section-title">About Me</h2>
-        <div class="section-content">
-            <p>
-            I am a Research Engineer in the ANTIQUE team at ENS-PSL/INRIA/CNRS under the supervision of Prof. Caterina Urban<br><br>
-            I just completed the MSc&T AiViC (Artificial Intelligence and Advanced Visual Computing) at École Polytechnique qualified as a Master-level graduate at École Polytechnique<br><br>
-            At 2025 I am an intern Researcher at <strong>MathOpt Group</strong> in <strong>OVGU</strong> under supervision of Prof. Dr. rer. nat. habil. <strong>Sebastian Sager</strong>, who also leads the <strong>Matehmatical Optimization and Machine Learning Group</strong> at <strong>MPI-Magdeburg</strong><br><br>
-            At 2024 worked as a Research Intern in <strong>EPFL IPESE Lab</strong> and Exchange Student in EPFL at Master level under the supervison of Prof. François Maréchal.<br><br>
-            I am a M2 AiViC (Artificial Intelligence and Advanced Visual Computing) student at École Polytechnique(Estimated graduate in October 2025)<br><br>
-
-            My research is focusing on building the next generation of <strong>advanced AI</strong> Decision-Making System that both <strong>Reliable and Trustworthy</strong></p>
-            <br><br>
+    <header class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-center animate-fade-in">
+            <div class="md:col-span-2 space-y-6 order-2 md:order-1">
+                <div class="inline-block px-3 py-1 text-xs font-semibold tracking-wide text-accent bg-blue-50 rounded-full">
+                    Open to Opportunities
+                </div>
+                <h1 class="text-5xl md:text-6xl font-serif font-bold text-primary leading-tight">
+                    Heyuan LIU
+                </h1>
+                <p class="text-xl md:text-2xl text-slate-500 font-light">
+                    Researcher & AI Engineer @ ENS-PSL / Inria / CNRS
+                </p>
+                <p class="text-lg leading-relaxed text-slate-600 max-w-2xl">
+                    Specializing in <span class="font-semibold text-primary">Theoretical Machine Learning</span>, <span class="font-semibold text-primary">Explainable AI (XAI)</span>, and <span class="font-semibold text-primary">Industrial System Optimization</span>. 
+                    <br>Currently bridging the gap between rigorous mathematics and practical AI applications at <strong>Inria</strong> & <strong>ENS-PSL</strong>.
+                </p>
+                
+                <div class="flex space-x-4 pt-4">
+                    <a href="https://github.com/MiSFiT5" target="_blank" class="text-slate-400 hover:text-primary transition text-2xl"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/heyuanliupolytechnique05" target="_blank" class="text-slate-400 hover:text-primary transition text-2xl"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:heyuan.liu@polytechnique.edu" class="text-slate-400 hover:text-primary transition text-2xl"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
             
+            <div class="order-1 md:order-2 flex justify-center md:justify-end">
+                <div class="relative w-64 h-64 md:w-72 md:h-72">
+                    <div class="absolute inset-0 bg-blue-100 rounded-full transform translate-x-3 translate-y-3"></div>
+                    <img src="personalPhoto.png" alt="Heyuan LIU" class="relative w-full h-full object-cover rounded-full border-4 border-white shadow-xl">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="bg-slate-50 py-12 border-y border-slate-100">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+                <div>
+                    <h3 class="text-lg font-bold text-primary mb-1">Current Status</h3>
+                    <p class="text-slate-600">Research Engineer at <strong>ANTIQUE team (ENS-PSL/INRIA/CNRS)</strong></p>
+                </div>
+                <div class="h-8 w-px bg-slate-300 hidden md:block"></div>
+                <div>
+                    <h3 class="text-lg font-bold text-primary mb-1">Upcoming</h3>
+                    <p class="text-slate-600">Joining <strong>OVGU MathOpt Group</strong> (Prof. Sebastian Sager) in 2025</p>
+                </div>
+                <div class="h-8 w-px bg-slate-300 hidden md:block"></div>
+                <div>
+                    <h3 class="text-lg font-bold text-primary mb-1">Education</h3>
+                    <p class="text-slate-600">MSc&T AiViC Graduate, <strong>École Polytechnique</strong></p>
+                </div>
+            </div>
         </div>
     </section>
-    <section class="highlight">
-        <h2 class="section-title">Ongoing and Incomming Projects</h2>
-        <div class="section-content">
-            <p class="experience-item"><strong>Simplification on post-trained ReLU Neural Network embeded in a MILP System</strong> with Prof. Dr. rer. nat. habil. Sebastian Sager at OVGU and MPI-Magdeburg</p>
-            
-            
-            
-        </div>
-    </section>
 
-    <section class="highlight">
-        <h2 class="section-title">Publication</h2>
-        <div class="section-content">
-            <div class="project-item">
-                    <img src="ESCAPE_poster.png" alt="Pub png">
-                    <div>
-                        <p><strong>H. Liu</strong>, Y. Zhao, and F. Maréchal. 
-                        “<em>On the role of Artificial Intelligence in Feature oriented Multi-Criteria Decision Analysis</em>.” 
-                        <em>35th European Symposium on Computer Aided Process Engineering - ESCAPE 35</em>, 2025.
-                        </p>
+    <main class="max-w-6xl mx-auto px-4 py-16 space-y-24">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16" id="experience">
+            
+            <section>
+                <h2 class="text-3xl font-serif font-bold text-primary mb-8 flex items-center">
+                    <span class="bg-blue-100 w-8 h-1 mr-4"></span> Experience
+                </h2>
+                <div class="border-l-2 border-slate-200 ml-3 space-y-12 pl-8 relative">
+                    
+                    <div class="relative group">
+                        <span class="absolute -left-[41px] top-2 h-5 w-5 rounded-full border-4 border-white bg-accent shadow-sm group-hover:scale-110 transition"></span>
+                        
+                        <div class="flex items-start gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-white rounded-lg border border-slate-100 p-1 shadow-sm mt-1">
+                                <img src="inria_log0.jpg" alt="Inria Logo" class="w-full h-full object-contain">
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-primary leading-snug">Research Engineer</h3>
+                                <p class="text-sm text-accent font-medium mb-2">ANTIQUE Team @ ENS-PSL/Inria/CNRS <br><span class="text-slate-400 font-normal text-xs">Dec 2025 - Present</span></p>
+                                <p class="text-slate-600 text-sm leading-relaxed">Focusing on the Neural Specification for Formal methods in Explainable AI under Prof. Caterina Urban.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative group">
+                        <span class="absolute -left-[41px] top-2 h-5 w-5 rounded-full border-4 border-white bg-slate-300 shadow-sm group-hover:bg-slate-400 transition"></span>
+                        
+                        <div class="flex items-start gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-white rounded-lg border border-slate-100 p-1 shadow-sm mt-1">
+                                <img src="OVGUlogo.png" alt="OVGU Logo" class="w-full h-full object-contain">
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-primary leading-snug">Research Intern</h3>
+                                <p class="text-sm text-slate-500 font-medium mb-2">OVGU MathOpt Group <br><span class="text-slate-400 font-normal text-xs">Apr 2025 - Dec 2025</span></p>
+                                <p class="text-slate-600 text-sm leading-relaxed">Simplification on post-trained ReLU Neural Networks embedded in MILP Systems under Prof. Sebastian Sager.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative group">
+                        <span class="absolute -left-[41px] top-2 h-5 w-5 rounded-full border-4 border-white bg-slate-300 shadow-sm group-hover:bg-slate-400 transition"></span>
+                        
+                        <div class="flex items-start gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-white rounded-lg border border-slate-100 p-1 shadow-sm mt-1">
+                                <img src="IPESElogo.png" alt="IPESE Logo" class="w-full h-full object-contain">
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-primary leading-snug">Research Intern</h3>
+                                <p class="text-sm text-slate-500 font-medium mb-2">EPFL IPESE Lab <br><span class="text-slate-400 font-normal text-xs">Mar 2024 - Sep 2024</span></p>
+                                <p class="text-slate-600 text-sm leading-relaxed">Applied clustering/dim-reduction on energy datasets. Integrated LLM decision-making assistants.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                     <div class="relative group">
+                        <span class="absolute -left-[41px] top-2 h-5 w-5 rounded-full border-4 border-white bg-slate-300 shadow-sm group-hover:bg-slate-400 transition"></span>
+                        
+                        <div class="flex items-start gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-white rounded-lg border border-slate-100 p-1 shadow-sm mt-1">
+                                <img src="RolandBergerLogo.jpeg" alt="Roland Berger Logo" class="w-full h-full object-contain">
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-primary leading-snug">Chatbot Engineer Intern</h3>
+                                <p class="text-sm text-slate-500 font-medium mb-2">Roland Berger <br><span class="text-slate-400 font-normal text-xs">Feb 2024 - Apr 2024</span></p>
+                                <p class="text-slate-600 text-sm leading-relaxed">Developed Chatbots for car sales using Coze and Dify. Specialized agents for Sales and After-Sales.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative group">
+                        <span class="absolute -left-[41px] top-2 h-5 w-5 rounded-full border-4 border-white bg-slate-300 shadow-sm group-hover:bg-slate-400 transition"></span>
+                        <div class="flex items-start gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-white rounded-lg border border-slate-100 p-1 shadow-sm mt-1">
+                                <img src="VolkswagenLogo.png" alt="VW Logo" class="w-full h-full object-contain">
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-primary leading-snug">Software Quality Intern</h3>
+                                <p class="text-sm text-slate-500 font-medium mb-2">Volkswagen-Mobvoi <br><span class="text-slate-400 font-normal text-xs">Jun 2022 - Aug 2022</span></p>
+                                <p class="text-slate-600 text-sm leading-relaxed">Improved quality system from v2.0 to 3.0. Solved 36 software quality issues in ID6 and Audi A6 projects.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            
-            
-            
+            </section>
+
+            <section>
+                <h2 class="text-3xl font-serif font-bold text-primary mb-8 flex items-center">
+                    <span class="bg-blue-100 w-8 h-1 mr-4"></span> Education
+                </h2>
+                <div class="space-y-8">
+                    
+                    <div class="flex gap-4 group">
+                        <div class="w-16 h-16 flex-shrink-0 bg-slate-50 rounded-lg p-2 flex items-center justify-center border border-slate-100 shadow-sm group-hover:shadow-md transition">
+                            <img src="IPPlogo.png" alt="Polytechnique" class="max-h-full max-w-full object-contain">
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-primary">École Polytechnique</h3>
+                            <p class="text-sm text-slate-500">MSc&T in Artificial Intelligence & Advanced Visual Computing</p>
+                            <p class="text-xs text-slate-400 mt-1 font-mono">GPA: 3.75/4.0 | SEMG Scholarship</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4 group">
+                        <div class="w-16 h-16 flex-shrink-0 bg-slate-50 rounded-lg p-2 flex items-center justify-center border border-slate-100 shadow-sm group-hover:shadow-md transition">
+                            <img src="epfllogo.png" alt="EPFL" class="max-h-full max-w-full object-contain">
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-primary">EPFL</h3>
+                            <p class="text-sm text-slate-500">Exchange Master Student in IPESE Lab</p>
+                            <p class="text-xs text-slate-400 mt-1 font-mono">Energy Systems Modeling & Optimization</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4 group">
+                        <div class="w-16 h-16 flex-shrink-0 bg-slate-50 rounded-lg p-2 flex items-center justify-center border border-slate-100 shadow-sm group-hover:shadow-md transition">
+                            <img src="mustlogo.png" alt="MUST" class="max-h-full max-w-full object-contain">
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-primary">Macau Univ. of Science & Tech</h3>
+                            <p class="text-sm text-slate-500">B.Sc. in Software Engineering</p>
+                            <p class="text-xs text-slate-400 mt-1 font-mono">Graduated with Honor Degree</p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        
+
+            <section>
+                <h2 class="text-3xl font-serif font-bold text-primary mb-8 flex items-center">
+                    <span class="bg-blue-100 w-8 h-1 mr-4"></span> Education
+                </h2>
+                <div class="space-y-8">
+                    
+                    <div class="flex gap-4">
+                        <div class="w-16 h-16 flex-shrink-0 bg-slate-50 rounded-lg p-2 flex items-center justify-center border border-slate-100">
+                            <img src="IPPlogo.png" alt="Polytechnique" class="max-h-full max-w-full">
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-primary">École Polytechnique</h3>
+                            <p class="text-sm text-slate-500">MSc&T in Artificial Intelligence & Advanced Visual Computing</p>
+                            <p class="text-xs text-slate-400 mt-1">GPA: 3.75/4.0 | SEMG Scholarship</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4">
+                        <div class="w-16 h-16 flex-shrink-0 bg-slate-50 rounded-lg p-2 flex items-center justify-center border border-slate-100">
+                            <img src="epfllogo.png" alt="EPFL" class="max-h-full max-w-full">
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-primary">EPFL (Swiss Federal Institute of Technology)</h3>
+                            <p class="text-sm text-slate-500">Exchange Master Student in IPESE Lab</p>
+                            <p class="text-xs text-slate-400 mt-1">Energy Systems Modeling & Optimization</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4">
+                        <div class="w-16 h-16 flex-shrink-0 bg-slate-50 rounded-lg p-2 flex items-center justify-center border border-slate-100">
+                            <img src="mustlogo.png" alt="MUST" class="max-h-full max-w-full">
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-primary">Macau University of Science and Technology</h3>
+                            <p class="text-sm text-slate-500">B.Sc. in Software Engineering</p>
+                            <p class="text-xs text-slate-400 mt-1">Graduated with Honor Degree</p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
         </div>
-    </section>
+
+        <section id="interests" class="bg-slate-900 rounded-2xl p-8 md:p-12 text-white relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-accent opacity-10 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
+            <h2 class="text-2xl font-serif font-bold mb-6 relative z-10">Research Interests</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
+                <div class="bg-white/10 backdrop-blur-sm p-4 rounded-lg border border-white/10">
+                    <i class="fas fa-brain text-accent text-2xl mb-3"></i>
+                    <h3 class="font-semibold">Explainable AI & Optimization</h3>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm p-4 rounded-lg border border-white/10">
+                    <i class="fas fa-eye text-accent text-2xl mb-3"></i>
+                    <h3 class="font-semibold">Computer Vision</h3>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm p-4 rounded-lg border border-white/10">
+                    <i class="fas fa-comments text-accent text-2xl mb-3"></i>
+                    <h3 class="font-semibold">LLMs & NLP</h3>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm p-4 rounded-lg border border-white/10">
+                    <i class="fas fa-calculator text-accent text-2xl mb-3"></i>
+                    <h3 class="font-semibold">PINN & Constraints Learning</h3>
+                </div>
+            </div>
+        </section>
+
+        <section id="publications">
+             <h2 class="text-3xl font-serif font-bold text-primary mb-8 flex items-center">
+                <span class="bg-blue-100 w-8 h-1 mr-4"></span> Publications
+            </h2>
+            <div class="bg-white rounded-xl shadow-sm border border-slate-100 p-6 hover:shadow-md transition">
+                <div class="flex items-start gap-4">
+                    <div class="flex-shrink-0 pt-1">
+                        <i class="fas fa-file-alt text-slate-300 text-xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold text-primary leading-tight">On the role of Artificial Intelligence in Feature oriented Multi-Criteria Decision Analysis</h4>
+                        <p class="text-slate-600 mt-2 text-sm">
+                            <span class="font-semibold text-slate-800">H. Liu</span>, Y. Zhao, and F. Maréchal
+                        </p>
+                        <div class="mt-3 flex items-center gap-2">
+                            <span class="px-2 py-1 bg-accent/10 text-accent text-xs font-bold rounded">ESCAPE 35 (2025)</span>
+                            <span class="text-xs text-slate-400">Poster Presentation</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2 class="text-3xl font-serif font-bold text-primary mb-10 flex items-center">
+                <span class="bg-blue-100 w-8 h-1 mr-4"></span> Selected Projects
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <div class="group bg-white rounded-xl border border-slate-100 overflow-hidden hover:shadow-xl transition duration-300">
+                    <div class="h-48 overflow-hidden bg-slate-100 relative">
+                        <img src="3Ddetection.png" alt="3D Luggage" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute top-4 right-4 bg-white/90 px-2 py-1 text-xs font-bold rounded shadow-sm">Computer Vision</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-2">3D Luggage Detection</h3>
+                        <p class="text-xs text-slate-500 mb-3 uppercase tracking-wide">IDEMIA & École Polytechnique</p>
+                        <p class="text-slate-600 text-sm mb-4 line-clamp-3">
+                            Reconstructing 3D geometry of luggage items using multi-view images from airport conveyor systems. Tackling robust feature matching and geometric reasoning.
+                        </p>
+                        <a href="https://github.com/MiSFiT5/Reports/blob/main/3DLuggageDetection_IDEMIA.pdf" target="_blank" class="inline-flex items-center text-sm font-semibold text-accent hover:text-blue-700">
+                            Read Report <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="group bg-white rounded-xl border border-slate-100 overflow-hidden hover:shadow-xl transition duration-300">
+                    <div class="h-48 overflow-hidden bg-slate-100 relative">
+                        <img src="DDIMinversion.png" alt="DDIM" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute top-4 right-4 bg-white/90 px-2 py-1 text-xs font-bold rounded shadow-sm">GenAI</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-2">Generative Image Editing</h3>
+                        <p class="text-xs text-slate-500 mb-3 uppercase tracking-wide">Diffusion Models</p>
+                        <p class="text-slate-600 text-sm mb-4 line-clamp-3">
+                             Modifying source images using DDIM inversion and Null-Text inversion ensuring feature retention while incorporating target prompts.
+                        </p>
+                        <a href="https://github.com/MiSFiT5/Reports/blob/main/Diffusion_Inversion_Report.pdf" target="_blank" class="inline-flex items-center text-sm font-semibold text-accent hover:text-blue-700">
+                            Read Report <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="group bg-white rounded-xl border border-slate-100 overflow-hidden hover:shadow-xl transition duration-300">
+                    <div class="h-48 overflow-hidden bg-slate-100 relative">
+                        <img src="EcoSystem.gif" alt="EcoSystem" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                         <div class="absolute top-4 right-4 bg-white/90 px-2 py-1 text-xs font-bold rounded shadow-sm">Unity 3D</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-2">3D EcoSystem Simulation</h3>
+                        <p class="text-xs text-slate-500 mb-3 uppercase tracking-wide">Computer Graphics</p>
+                        <p class="text-slate-600 text-sm mb-4 line-clamp-3">
+                            Scene construction in Unity with dynamic creatures, crowd simulation, and interaction logic starting from a flat terrain.
+                        </p>
+                         <a href="https://drive.google.com/file/d/1gOjvvbWmTL18TTcY3dBOND7Sk6uTLlcN/view?usp=drive_link" target="_blank" class="inline-flex items-center text-sm font-semibold text-accent hover:text-blue-700">
+                            Watch Video <i class="fas fa-play ml-2 text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="group bg-white rounded-xl border border-slate-100 overflow-hidden hover:shadow-xl transition duration-300">
+                    <div class="h-48 overflow-hidden bg-slate-100 relative">
+                        <img src="mesh_animation.gif" alt="IPESE" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute top-4 right-4 bg-white/90 px-2 py-1 text-xs font-bold rounded shadow-sm">Data Science</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-2">Multi-criteria Decision Analysis</h3>
+                        <p class="text-xs text-slate-500 mb-3 uppercase tracking-wide">EPFL IPESE</p>
+                        <p class="text-slate-600 text-sm mb-4 line-clamp-3">
+                            Data-driven methods for AI decision-making in Energy Systems using dimensionality reduction, clustering, and shape analysis.
+                        </p>
+                        <a href="https://github.com/MiSFiT5/IPESEinternship" target="_blank" class="inline-flex items-center text-sm font-semibold text-accent hover:text-blue-700">
+                            View GitHub <i class="fab fa-github ml-2 text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                 <div class="group bg-white rounded-xl border border-slate-100 overflow-hidden hover:shadow-xl transition duration-300">
+                    <div class="h-48 overflow-hidden bg-slate-100 relative">
+                        <img src="Starcraft.jpeg" alt="StarCraft" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute top-4 right-4 bg-white/90 px-2 py-1 text-xs font-bold rounded shadow-sm">Game AI</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-2">Real-Time AI for StarCraft</h3>
+                        <p class="text-xs text-slate-500 mb-3 uppercase tracking-wide">Reinforcement Learning</p>
+                        <p class="text-slate-600 text-sm mb-4 line-clamp-3">
+                            Implemented real-time AI strategies based on BWAPI. Ranked 1st in Terran and 2nd overall in the course competition.
+                        </p>
+                        <a href="https://github.com/MiSFiT5/Real-Time-AI-for-Star-Craft-Based-on-BWAPI" target="_blank" class="inline-flex items-center text-sm font-semibold text-accent hover:text-blue-700">
+                            View GitHub <i class="fab fa-github ml-2 text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                 <div class="group bg-white rounded-xl border border-slate-100 overflow-hidden hover:shadow-xl transition duration-300">
+                    <div class="h-48 overflow-hidden bg-slate-100 relative">
+                        <img src="outlineforNLP.png" alt="NLP" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute top-4 right-4 bg-white/90 px-2 py-1 text-xs font-bold rounded shadow-sm">NLP</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-2">Extractive Summarization</h3>
+                        <p class="text-xs text-slate-500 mb-3 uppercase tracking-wide">Graph Neural Networks</p>
+                        <p class="text-slate-600 text-sm mb-4 line-clamp-3">
+                            Utilized GraphSAGE, GCN, and GAT models to enhance text summarization by analyzing conversation structures.
+                        </p>
+                        <a href="https://github.com/MiSFiT5/INF554_Project" target="_blank" class="inline-flex items-center text-sm font-semibold text-accent hover:text-blue-700">
+                            View GitHub <i class="fab fa-github ml-2 text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 pt-8">
+            <section>
+                <h2 class="text-2xl font-serif font-bold text-primary mb-6">Paper Reading Notes</h2>
+                <ul class="space-y-4">
+                    <li>
+                        <a href="https://docs.google.com/presentation/d/19KzwqCjNHx84XDxDGhLlB_k3TmXWjvww/edit?usp=sharing" class="group flex items-center justify-between p-4 bg-slate-50 rounded-lg hover:bg-slate-100 transition">
+                            <span class="font-medium text-slate-700 group-hover:text-accent">ViT Vision Transformer</span>
+                            <i class="fas fa-external-link-alt text-slate-400 text-sm"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://drive.google.com/file/d/1jh7PJcfGhi94dIlLpJUrc_Gnlxot92ZM/view?usp=sharing" class="group flex items-center justify-between p-4 bg-slate-50 rounded-lg hover:bg-slate-100 transition">
+                            <span class="font-medium text-slate-700 group-hover:text-accent">Neural Subdivision</span>
+                            <i class="fas fa-external-link-alt text-slate-400 text-sm"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://docs.google.com/presentation/d/1RPH710nrNLMAhI84h4OOVXM_F5d3vliJ/edit?usp=sharing" class="group flex items-center justify-between p-4 bg-slate-50 rounded-lg hover:bg-slate-100 transition">
+                            <span class="font-medium text-slate-700 group-hover:text-accent">Mission: Impossible LLM</span>
+                            <i class="fas fa-external-link-alt text-slate-400 text-sm"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="text-2xl font-serif font-bold text-primary mb-6">Personal</h2>
+                <div class="bg-yellow-50 border border-yellow-100 rounded-lg p-6">
     
-    <section class="highlight">
-        <h2 class="section-title">Research Interest</h2>
-        <div class="section-content">
-            <p class="experience-item"><strong>Explainable & Trustworthy AI and Mathematical Optimization</strong></p>
-            <p class="experience-item"><strong>Computer Vision and Data Visualization</strong></p>
-            <p class="experience-item"><strong>PINN and constraints learning</strong></p>
+                    <div class="text-sm text-yellow-900/70">
+                        <p><strong>Languages:</strong> English, Chinese, Deutsch (Basic), French (Basic)</p>
+                        <p class="mt-1"><strong>Interests:</strong> Basketball, Saxophone, Dragon boat</p>
+                    </div>
+                </div>
+            </section>
         </div>
-    </section>
-    <section class="highlight">
-        <h2 class="section-title">Education</h2>
-        <div class="section-content">
-            <p class="experience-item"><img src="IPPlogo.png" alt="Ecole Polytechnique Logo" style="width: 100px;"><br><strong>École Polytechnique</strong> <br><a href="https://programmes.polytechnique.edu/en/master/all-msct-programs/artificial-intelligence-advanced-visual-computing-master">Master of Science and Technology in Artificial Intelligence and Advanced Visual Computing</a> <br> Coursework: Machine and Deep Learning, Image Analysis and Computer Vision, Computer Animation <br> Scholarship: SEMG scholarship<br> GPA: 3.75/4.0 - M1 GPA: 3.68  M2 GPA: 3.83<br>Supervisor in M1: Prof. <a href="https://jmread.github.io/">Jesse Read</a><br>Supervisor in M2: TBC</p>
-            <p class="experience-item"><img src="epfllogo.png" alt="EPFL Logo" style="width: 100px;"><br><strong>EPFL</strong> <br><a href="https://www.epfl.ch/labs/ipese/">Master Student in IPESE lab</a> <br> Coursework: Modeling, optimization, design, and analysis of integrated energy systems <br>Supervisor: Prof. <a href="https://people.epfl.ch/francois.marechal?lang=en">François Maréchal</a> and Mr. <a href="https://people.epfl.ch/yi.zhao?lang=en">Yi Zhao</a></p>
-            <p class="experience-item"><img src="mustlogo.png" alt="Macau University of Science and Technology Logo" style="width: 100px;"><br><strong>Macau University of Science and Technology</strong> <br><a href="https://www.must.edu.mo/en/scse/programme/bachelors-degree-programme/study-plan-2019">Bachelor of Science (Software Engineering)</a> <br> Coursework: OOP in Java, Algorithms, Mobile Application Development, Data Science, Artificial Intelligence, Data Structures <br> Graduated with an Honor Degree<br>Supervisor: Prof. <a href="https://www.must.edu.mo/en/scse/staff/huangrubing">Rubing Huang</a></p>
+
+    </main>
+
+    <footer class="bg-primary text-slate-400 py-12 mt-12">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <p class="mb-4 text-lg text-white font-serif">Heyuan LIU</p>
+            <div class="flex justify-center space-x-6 mb-8">
+                <a href="https://www.linkedin.com/in/heyuanliupolytechnique05" class="hover:text-white transition"><i class="fab fa-linkedin text-xl"></i></a>
+                <a href="https://github.com/MiSFiT5" class="hover:text-white transition"><i class="fab fa-github text-xl"></i></a>
+                <a href="mailto:heyuan.liu@polytechnique.edu" class="hover:text-white transition"><i class="fas fa-envelope text-xl"></i></a>
+            </div>
+            <p class="text-sm">&copy; 2026 Heyuan LIU. Designed with minimalist principles.</p>
         </div>
-    </section>
-    <section class="highlight">
-        <h2 class="section-title">Work Experiences</h2>
-        <div class="section-content">
-            <p class="experience-item"><img src="inria_log0.jpg" alt="Inria Logo" style="width: 100px;"><br><strong>ANTIQUE team at ENS-PSL/Inria/CNRS</strong><br>Research Engineer<br>Dec. 2025 to Now<br>
-            Focusing on the Neural Specification for Formal method in Explainable AI <br>
-            <p class="experience-item"><img src="OVGUlogo.png" alt="OVGU Logo" style="width: 100px;"><br><strong>OVGU MathOpt Group</strong><br>Research Intern<br>April. 2025 to Sep. 2025 + Oct. 2025 to Dec. 2025<br>
-            Exploring mathematical optimization methods to simplify ReLU networks after training to reduce MILP solver complexity. <br>Reviewing recent methods for function-preserving and approximate transformations without retraining. <br>Focused on structure-preserving transformations to improve optimization performance. <br></p>
-            <p class="experience-item"><img src="IPESElogo.png" alt="IPESE Logo" style="width: 100px;"><br><strong>EPFL IPESE lab</strong><br>Research Intern<br>Mar. 2024 to Sep. 2024<br>
-            Applying advanced clustering and dimensionality reduction algorithms to preprocess datasets. <br>Designing ML models to train datasets and generate optimal solutions. <br>Analyzing results and providing recommendations with a LLM decision-making assistant.</p>
-            <p class="experience-item"><img src="RolandBergerLogo.jpeg" alt="RB Logo" style="width: 100px;"><br><strong>Roland Berger</strong><br>Feb. 2024 to Apr. 2024<br>Chatbot Engineer (PTA intern)<br>
-            Developed Chatbot for car sales using coze and dify, created and deployed specialized agents: Sales, After-Sales, Service. <br>Ensured accurate responses and avoided chatbot hallucinations.</p>
-            <p class="experience-item"><img src="VolkswagenLogo.png" alt="VW Logo" style="width: 100px;"><br><strong>Volkswagen-Mobvoi</strong><br>June 2022 to Aug. 2022<br>Software Quality Intern<br>
-            Improved quality system from version 2.0 to 3.0, solved 36 software quality problems in Volkswagen ID6 and Audi A6 projects, ensured timely delivery of projects during COVID-19.</p>
-        </div>
-    </section>
-
-    
-    
-    <section class="highlight">
-        <h2 class="section-title">Projects</h2>
-        <div class="section-content">
-            <div class="project-item">
-                <img src="3Ddetection.png" alt="Project GIF">
-                <div>
-                    <p><strong>3D Luggage Detection with IDEMIA</strong><br>Transverse Project @ École Polytechnique & IDEMIA <br> Sep. 2024 to Mar. 2025 <br>Link: <a href="https://github.com/MiSFiT5/Reports/blob/main/3DLuggageDetection_IDEMIA.pdf">Report</a><br>
-                    The project involved reconstructing the 3D geometry of luggage items using multi-view images captured from airport conveyor systems—a challenging problem requiring robust feature matching and geometric reasoning.</p>
-                </div>
-            </div>
-            <div class="project-item">
-                <img src="DDIMinversion.png" alt="Project GIF">
-                <div>
-                    <p><strong>Generative Image Editing via Inversion - DDIM (Null-Text) inversion</strong><br>CSC_53449_EP @ École Polytechnique <br> Feb. 2025 to Mar. 2025 <br>Link: <a href="https://github.com/MiSFiT5/Reports/blob/main/Diffusion_Inversion_Report.pdf">Report</a><br>
-                    With DDIM inversion and Null-Text inversion, The goal is to modify the source image according to the target prompt, ensuring that the generated image retains most of the original features while incorporating the changes described by the target prompt. </p>
-                </div>
-            </div>
-            <div class="project-item">
-                <img src="EcoSystem.gif" alt="Project GIF">
-                <div>
-                    <p><strong>3D simulation of Population and animation of animals in EcoSystem</strong><br>CSC_53433_EP Project @ École Polytechnique <br> Sep. 2024 to Dec. 2024 <br>Link: <a href="https://drive.google.com/file/d/1gOjvvbWmTL18TTcY3dBOND7Sk6uTLlcN/view?usp=drive_link">Video</a><br>
-                    This work is focusing on the Scene construction in Unity, create, starting from a flat empty terrain, one with interesting features, objects and dynamic, living creatures all interacting together. For this, multiple edition tools will be created and basic principles of animation and crowd simulation used to give life to the virtual world.</p>
-                </div>
-            </div>
-            <div class="project-item">
-                <img src="mesh_animation.gif" alt="Project GIF">
-                <div>
-                    <p><strong>Identify optimal configuration with a machine learning method in multi-criteria decision analysis</strong><br>Research Project @ EPFL IPESE lab <br> Mar. 2024 to Sep. 2024 <br>Link: <a href="https://github.com/MiSFiT5/IPESEinternship">GitHub</a><br>
-                    The work in EPFL IPESE lab focuses on data-driven methods for decision-making in AI applications within Energy Systems and Industrial Processes. This involves techniques like Dimension Reduction, Clustering, Deep Learning, Reinforcement Learning, and the use of LLM Chatbots. The highlights are transform the original datasets into shapes and uses shape anaysis to extract more features</p>
-                </div>
-            </div>
-            <div class="project-item">
-                <img src="DDPG.jpg" alt="Project GIF">
-                <div>
-                    <p><strong>Navi-UAV</strong><br>INF581 Project @ École Polytechnique <br> Jan. 2024 to Mar. 2024 <br>Link: <a href="https://github.com/172698691/INF581-Project">GitHub</a><br>
-                    Implemented Reinforcement Learning (DDPG) to enable UAVs to navigate through dynamic and uncertain environments efficiently.</p>
-                </div>
-            </div>
-            <div class="project-item">
-                <img src="results_shorten.gif" alt="Project GIF">
-                <div>
-                    <p><strong>Precision Collision Dynamics Simulation in Pinball</strong><br>INF585 Project @ École Polytechnique <br> Jan. 2024 to Mar. 2024 <br>Link: <a href="https://github.com/172698691/INF-585/tree/main/inf585_lab_code/scenes_inf585/project">GitHub</a><br>
-                    Implemented the pinball simulations in aminations, hard and soft collisions are taken into considerations. (Iron pillar and Spring)</p>
-                </div>
-            </div>
-            <div class="project-item">
-                <img src="Starcraft.jpeg" alt="Project GIF">
-                <div>
-                    <p><strong>Real-Time AI for StarCraft</strong><br>INF584A @ École Polytechnique <br> Jan. 2024 to Mar. 2024 <br>Link: <a href="https://github.com/MiSFiT5/Real-Time-AI-for-Star-Craft-Based-on-BWAPI">GitHub</a><br>
-                    Implemented real-time AI strategies for the game StarCraft based on the BWAPI, Selected Terran and beated 8/9 teams in the course, Ranking 1st in Terran, 2nd overall.</p>
-                </div>
-            </div>
-            <div class="project-item">
-                <img src="outlineforNLP.png" alt="Project GIF">
-                <div>
-                    <p><strong>Extractive Summarization with Discourse Graphs</strong><br>INF554 @ École Polytechnique <br> Oct. 2023 to Dec. 2023 <br>Link: <a href="https://github.com/MiSFiT5/INF554_Project">GitHub</a><br>
-                    Utilized GraphSAGE, Graph Convolutional Networks (GCN), Graph Attention Networks (GAT), and other graph-based models to enhance text summarization by analyzing conversation structures and important content.</p>
-                </div>
-            </div>
-            <div class="project-item">
-                <img src="result.gif" alt="Project GIF">
-                <div>
-                    <p><strong>Vtuber-Genshin</strong><br>INF573 @ École Polytechnique <br> Oct. 2022 to Dec. 2023 <br>Link: <a href="https://github.com/172698691/VTuber-Genshin">GitHub</a><br>
-                    Developed a real-time virtual character using MediaPipe and Unity, achieving high performance in head pose estimation and face mesh, ensuring stability and real-time capabilities.</p>
-                </div>
-            </div>
-            <div class="project-item">
-                <img src="Autotrainer.png" alt="Project GIF">
-                <div>
-                    <p><strong>A Dynamic Detection Approach for Oscillating Loss Problem in DNN based on AUTOTRAINER</strong><br>Final Year Project @ MUST <br> Sep. 2022 - May 2023 <br>Link: <a href="https://github.com/MiSFiT5/Dynamic-AUTOTRAINER">GitHub</a><br>
-                    Developed a dynamic bug detection system to identify and resolve oscillating loss issues in Deep Neural Networks, achieving a 50% reduction in time and computational resources required for bug detection, and received an “A+”.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="highlight">
-        <h2 class="section-title">Activity Experience</h2>
-        <div class="section-content">
-            <p class="experience-item"><strong>IEEE EI2 2024 conference SUB Reviewer</strong><br>Sep. 2024 – Oct. 2024<br>
-            IEEE Power and Energy Scociety, Will be held in Shenyang China, Dec. 2024</p>
-            <p class="experience-item"><strong>Zhejiang University SDG summer school</strong><br>July 2023 – Aug. 2023<br>
-            Focused on data visualization, including advanced research, practical training, and project reports.</p>
-            <p class="experience-item"><strong>Chinese Academy of Science summer research camp</strong><br>July 2020 – Aug. 2020<br>
-            Engaged in practical training and experiments on path planning for driverless cars, along with understanding current driverless technology developments.</p>
-        </div>
-    </section>
-    <div class="highlight">
-
-    <section class="section-content">
-        <h2 class="section-title">Paper Reading Notes</h2>
-        <div class="section-content">
-             <p class="experience-item"><strong>An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale (ViT Vision Transformer) </strong><br><a href="https://docs.google.com/presentation/d/19KzwqCjNHx84XDxDGhLlB_k3TmXWjvww/edit?usp=sharing&ouid=115232679957511333633&rtpof=true&sd=true">Goole Drive Link</a><br>
-           </p>
-            <p class="experience-item"><strong>Neural Subdivision </strong><br><a href="https://drive.google.com/file/d/1jh7PJcfGhi94dIlLpJUrc_Gnlxot92ZM/view?usp=sharing">Goole Drive Link</a><br>
-           </p>
-            <p class="experience-item"><strong>Mission: Impossible Language Model </strong><br><a href="https://docs.google.com/presentation/d/1RPH710nrNLMAhI84h4OOVXM_F5d3vliJ/edit?usp=sharing&ouid=115232679957511333633&rtpof=true&sd=true">Goole Drive Link</a><br>
-           </p>
-        </div>
-    </section>
-    </div>
-
-    
-    <section class="highlight">
-        <h2 class="section-title">Languages & Interests</h2>
-        <div class="section-content">
-            
-            <p class="experience-item"><strong>Languages:</strong> English (Fluent), Chinese/Mandarin (Native), Deutsch (Basic), French (Beginner)</p>
-            <p class="experience-item"><strong>Interests:</strong> Basketball, Saxophone, Dragon boat</p>
-        </div>
-    </section>
-     <section class="highlight">
-        <h2 class="section-title">Special Awards</h2>
-        <div class="project-item">
-                <img src="award.JPG" alt="Project GIF">
-                <div>
-                    <p>Issued by co-worker in École Polytechnique <a href="https://www.linkedin.com/in/ziyu-wu-32259329a/?originalSubdomain=fr">Ziyu WU</a><br>
-                    Translations: You are the backbone of our team. <strong>#Reliable teammate</strong> </p>
-                </div>
-            </div>
-    </section>
-    <section class="highlight">
-        <h2 class="section-title">Contact Me</h2>
-        <div class="section-content">
-            
-            <p class="experience-item">You can reach me at <a href="mailto:heyuan.liu@polytechnique.edu">heyuan.liu@polytechnique.edu</a>.</p>
-        </div>
-    </section>
-</div>
-
-
-
-
-
-
-</body>
-</html>
-
-<footer>
-    <p>&copy; 2025 Heyuan LIU</p>
-</footer>
+    </footer>
 
 </body>
 </html>
