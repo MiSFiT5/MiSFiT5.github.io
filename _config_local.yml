@@ -1,0 +1,3 @@
+# Local preview only; does not change the public URL.
+url: "http://localhost:4000"
+baseurl: ""
