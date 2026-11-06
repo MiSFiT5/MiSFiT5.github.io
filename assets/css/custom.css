@@ -6,6 +6,7 @@
 .research-interests { padding-left: 1.2em; }
 .academic-content .entry-kicker { color: var(--global-text-color-light); font-size: .65em; text-transform: uppercase; letter-spacing: .04em; margin-bottom: .5em; }
 .publication h3 { font-size: 1.05em; }
+.publication + .publication { margin-top: 1.75em; }
 .publication .authors { font-size: .85em; margin-bottom: .3em; }
 .academic-content .venue { color: var(--global-text-color-light); font-size: .8em; margin-bottom: .7em; }
 .text-link, .academic-content .section-link { font-size: .8em; }
